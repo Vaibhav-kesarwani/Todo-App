@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:todoapp/common/utils/constants.dart';
 import 'package:todoapp/common/widgets/appstyle.dart';
 import 'package:todoapp/common/widgets/reusable_text.dart';
-import 'package:todoapp/common/widgets/width_spacer.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -17,23 +16,21 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: Center(
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             ResuableText(
-              text: "Todo App",
+              text: "Todo",
               style: appstyle(26, AppConst.kBlueLight, FontWeight.bold),
             ),
-            const WidthSpacer(width: 20),
             ResuableText(
-              text: "Todo App",
+              text: "Todo",
               style: appstyle(26, AppConst.kBlueLight, FontWeight.bold),
             ),
-            const WidthSpacer(width: 20),
             ResuableText(
-              text: "Todo App",
+              text: "Todo",
               style: appstyle(26, AppConst.kBlueLight, FontWeight.bold),
             ),
-            const WidthSpacer(width: 20),
           ],
         ),
       ),

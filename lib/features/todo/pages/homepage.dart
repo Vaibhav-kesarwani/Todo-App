@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todoapp/common/utils/constants.dart';
 import 'package:todoapp/common/widgets/appstyle.dart';
 import 'package:todoapp/common/widgets/reusable_text.dart';
 
@@ -16,7 +17,7 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: ResuableText(
           text: "Todo App",
-          style: appstyle(26, Colors.blue, FontWeight.bold),
+          style: appstyle(26, AppConst.kBlueLight, FontWeight.bold),
         ),
       ),
     );

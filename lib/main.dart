@@ -29,6 +29,7 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: AppConst.kBkDark,
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           ),
+          themeMode: ThemeMode.dark,
           home: const Onboarding(),
         );
       },

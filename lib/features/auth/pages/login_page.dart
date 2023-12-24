@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -17,6 +18,19 @@ class LoginPage extends ConsumerStatefulWidget {
 
 class _LoginPageState extends ConsumerState<LoginPage> {
   final TextEditingController phone = TextEditingController();
+
+  Country country = Country(
+    phoneCode: "91",
+    countryCode: "IN",
+    e164Sc: 0,
+    geographic: true,
+    level: 1,
+    name: "India",
+    example: "India",
+    displayName: "India",
+    displayNameNoCountryCode: "IN",
+    e164Key: "",
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -49,24 +63,53 @@ class _LoginPageState extends ConsumerState<LoginPage> {
               const HeightSpacer(height: 20),
               Center(
                 child: CustomTextField(
+                  controller: phone,
                   prefixIcon: Container(
-                    padding: const EdgeInsets.all(4),
-                    child: GestureDetector(),
+                    padding: const EdgeInsets.all(14),
+                    child: GestureDetector(
+                      onTap: () {
+                        showCountryPicker(
+                          context: context,
+                          onSelect: (code) {
+                            setState(() {});
+                          },
+                          countryListTheme: CountryListThemeData(
+                            backgroundColor: AppConst.kLight,
+                            bottomSheetHeight: AppConst.kHeight * 0.6,
+                            borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(AppConst.kRadius),
+                              topRight: Radius.circular(AppConst.kRadius),
+                            ),
+                          ),
+                        );
+                      },
+                      child: ResuableText(
+                        text: "${country.flagEmoji} + ${country.phoneCode}",
+                        style: appstyle(18, AppConst.kBkDark, FontWeight.bold),
+                      ),
+                    ),
                   ),
-                  keyboardType: TextInputType.phone,
+                  keyboardType: TextInputType.number,
                   hintText: "Enter phone number",
                   hintStyle: appstyle(16, AppConst.kBkDark, FontWeight.w600),
-                  controller: phone,
                 ),
               ),
               const HeightSpacer(height: 20),
-              CustomOutlineButton(
-                onTap: null,
-                width: AppConst.kWidth * 0.9,
-                height: AppConst.kHeight * 0.07,
-                color: AppConst.kBkDark,
-                color2: AppConst.kLight,
-                text: "Send Code",
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: CustomOutlineButton(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OtpPage()),
+                    );
+                  },
+                  width: AppConst.kWidth * 0.85,
+                  height: AppConst.kHeight * 0.07,
+                  color: AppConst.kBkDark,
+                  color2: AppConst.kLight,
+                  text: "Send Code",
+                ),
               ),
             ],
           ),

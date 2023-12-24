@@ -8,6 +8,7 @@ import 'package:todoapp/common/widgets/custom_outlinebtn.dart';
 import 'package:todoapp/common/widgets/custom_text.dart';
 import 'package:todoapp/common/widgets/height_spacer.dart';
 import 'package:todoapp/common/widgets/reusable_text.dart';
+import 'package:todoapp/features/auth/pages/otp_page.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
@@ -101,7 +102,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => OtpPage()),
+                      MaterialPageRoute(builder: (context) => const OtpPage()),
                     );
                   },
                   width: AppConst.kWidth * 0.85,

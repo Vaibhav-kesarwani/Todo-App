@@ -7,6 +7,7 @@ import 'package:todoapp/common/widgets/appstyle.dart';
 import 'package:todoapp/common/widgets/custom_text.dart';
 import 'package:todoapp/common/widgets/height_spacer.dart';
 import 'package:todoapp/common/widgets/reusable_text.dart';
+import 'package:todoapp/common/widgets/width_spacer.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -15,7 +16,12 @@ class HomePage extends ConsumerStatefulWidget {
   ConsumerState<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends ConsumerState<HomePage> {
+class _HomePageState extends ConsumerState<HomePage>
+    with TickerProviderStateMixin {
+  late final TabController tabController = TabController(
+    length: 2,
+    vsync: this,
+  );
   final TextEditingController search = TextEditingController();
 
   @override
@@ -76,29 +82,110 @@ class _HomePageState extends ConsumerState<HomePage> {
                 ),
               ),
               const HeightSpacer(height: 15),
-              
             ],
           ),
         ),
       ),
-      body: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            ResuableText(
-              text: "Todo",
-              style: appstyle(26, AppConst.kBlueLight, FontWeight.bold),
-            ),
-            ResuableText(
-              text: "Todo",
-              style: appstyle(26, AppConst.kBlueLight, FontWeight.bold),
-            ),
-            ResuableText(
-              text: "Todo",
-              style: appstyle(26, AppConst.kBlueLight, FontWeight.bold),
-            ),
-          ],
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 20.w),
+          child: ListView(
+            children: [
+              const HeightSpacer(height: 25),
+              Row(
+                children: [
+                  const Icon(
+                    FontAwesome.tasks,
+                    size: 20,
+                    color: AppConst.kLight,
+                  ),
+                  const WidthSpacer(width: 10),
+                  ResuableText(
+                    text: "Today's Task",
+                    style: appstyle(18, AppConst.kLight, FontWeight.bold),
+                  ),
+                ],
+              ),
+              const HeightSpacer(height: 25),
+              Container(
+                decoration: BoxDecoration(
+                  color: AppConst.kLight,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(AppConst.kRadius),
+                  ),
+                ),
+                child: TabBar(
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicator: BoxDecoration(
+                    color: AppConst.kGreyLight,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(AppConst.kRadius),
+                    ),
+                  ),
+                  controller: tabController,
+                  labelPadding: EdgeInsets.zero,
+                  isScrollable: false,
+                  labelColor: AppConst.kBlueLight,
+                  labelStyle: appstyle(
+                    24,
+                    AppConst.kBlueLight,
+                    FontWeight.w700,
+                  ),
+                  unselectedLabelColor: AppConst.kLight,
+                  tabs: [
+                    Tab(
+                      child: SizedBox(
+                        width: AppConst.kWidth * 0.5,
+                        child: Center(
+                          child: ResuableText(
+                            text: "Pending",
+                            style:
+                                appstyle(16, AppConst.kBkDark, FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                    Tab(
+                      child: Container(
+                        padding: EdgeInsets.only(left: 30.w),
+                        width: AppConst.kWidth * 0.5,
+                        child: Center(
+                          child: ResuableText(
+                            text: "Completed",
+                            style:
+                                appstyle(16, AppConst.kBkDark, FontWeight.bold),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const HeightSpacer(height: 20),
+              SizedBox(
+                height: AppConst.kHeight * 0.3,
+                width: AppConst.kWidth,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(AppConst.kRadius),
+                  ),
+                  child: TabBarView(
+                    controller: tabController,
+                    children: [
+                      Container(
+                        color: AppConst.kGreen,
+                        height: AppConst.kHeight * 0.3,
+                      ),
+                      Container(
+                        color: AppConst.kBkLight,
+                        height: AppConst.kHeight * 0.3,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

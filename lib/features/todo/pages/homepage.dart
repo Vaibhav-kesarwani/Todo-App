@@ -9,6 +9,7 @@ import 'package:todoapp/common/widgets/exxpansion_tile.dart';
 import 'package:todoapp/common/widgets/height_spacer.dart';
 import 'package:todoapp/common/widgets/reusable_text.dart';
 import 'package:todoapp/common/widgets/width_spacer.dart';
+import 'package:todoapp/features/todo/widgets/todo_tile.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({super.key});
@@ -174,8 +175,20 @@ class _HomePageState extends ConsumerState<HomePage>
                     controller: tabController,
                     children: [
                       Container(
-                        color: AppConst.kGreen,
+                        color: AppConst.kBkLight,
                         height: AppConst.kHeight * 0.3,
+                        child: ListView(
+                          children: [
+                            TodoTile(
+                              start: "03:00",
+                              end: "05:00",
+                              switcher: Switch(
+                                value: true,
+                                onChanged: (value) {},
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                       Container(
                         color: AppConst.kBkLight,

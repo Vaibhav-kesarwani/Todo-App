@@ -136,7 +136,7 @@ class TodoTile extends StatelessWidget {
                 ),
                 Container(
                   padding: EdgeInsets.only(bottom: 0.h),
-                  child: switcher.,
+                  child: switcher,
                 ),
               ],
             ),

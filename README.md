@@ -8,7 +8,6 @@ The Todo App 📝 is a streamlined and intuitive task management application des
 <img width="250" src="https://github.com/Vaibhav-kesarwani/Todo-App/assets/116189379/5829df23-1976-4222-96cc-44bd5cf58262">
 </p>
 
-
 ## How to setup project locally
 
 This repository contains a Flutter project. To get started, follow the steps below to set up the project on your local machine.

@@ -1,6 +1,13 @@
-# Todo-App
+# 📝Todo-App
 
 The Todo App 📝 is a streamlined and intuitive task management application designed to help users efficiently organize their daily activities. With a user-friendly interface, it allows for easy creation, prioritization, and tracking of tasks, ensuring that nothing important slips through the cracks. The app offers features such as categorization, due dates, reminders, and task completion tracking to enhance productivity and enable users to stay on top of their schedules. Whether it's personal errands, work-related tasks, or long-term projects, the Todo App provides a centralized platform for seamless task management, empowering users to stay organized and focused. 🚀✅📅🔍
+
+## 🏠Home Screen
+
+<p align="center">
+<img width="250" src="https://github.com/Vaibhav-kesarwani/Todo-App/assets/116189379/5829df23-1976-4222-96cc-44bd5cf58262">
+</p>
+
 
 ## How to setup project locally
 

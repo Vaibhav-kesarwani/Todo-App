@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:todoapp/common/utils/constants.dart';
 import 'package:todoapp/common/widgets/appstyle.dart';
 import 'package:todoapp/common/widgets/custom_text.dart';
-import 'package:todoapp/common/widgets/exxpansion_tile.dart';
+import 'package:todoapp/common/widgets/xpansion_tile.dart';
 import 'package:todoapp/common/widgets/height_spacer.dart';
 import 'package:todoapp/common/widgets/reusable_text.dart';
 import 'package:todoapp/common/widgets/width_spacer.dart';
@@ -199,13 +199,13 @@ class _HomePageState extends ConsumerState<HomePage>
                 ),
               ),
               const HeightSpacer(height: 20),
-              const ExxpansionTile(
+              const XpansionTile(
                 text: "Tomorrow's Task",
                 text2: "Tomorrow's tasks are shown here",
                 children: [],
               ),
               const HeightSpacer(height: 20),
-              ExxpansionTile(
+              XpansionTile(
                 text: DateTime.now()
                     .add(const Duration(days: 2))
                     .toString()

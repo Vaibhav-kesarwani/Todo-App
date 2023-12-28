@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:todoapp/common/utils/constants.dart';
 import 'package:todoapp/common/widgets/titles.dart';
 
-class ExxpansionTile extends StatelessWidget {
-  const ExxpansionTile({
+class XpansionTile extends StatelessWidget {
+  const XpansionTile({
     super.key,
     required this.text,
     required this.text2,
